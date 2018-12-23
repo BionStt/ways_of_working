@@ -3,6 +3,7 @@
 Ways of working ideas, notes, and links.
 
 Contents:
+
 * [Ask Hacker News: Best project management practices in 2018?](#ask-hacker-news-best-project-management-practices-in-2018-)
 * [Cyranix recommendations](#cyranix-recommendations)
 * [How we structure our work and teams at Basecamp](#how-we-structure-our-work-and-teams-at-basecamp)
@@ -49,43 +50,117 @@ Comment summaries:
 
 https://news.ycombinator.com/item?id=16377523
 
-1. Set up clear organizational guidance for project artifacts. 
+Set up clear organizational guidance for project artifacts. 
 
-  * Where will all of the docs and spreadsheets go? 
-  * How will you keep track of which issues are relevant in your issue tracker? 
-  * How can stakeholders get self-service updates on the project? 
-  * Keep labels and naming as consistent as possible across the various services you use. 
-  * For more formal situations, you might also need to set up RACI or similar communication structures.
+* Where will all of the docs and spreadsheets go? 
 
-2. Define measurable outcomes as success criteria from the very start. 
+* How will you keep track of which issues are relevant in your issue tracker?
+  
+* How can stakeholders get self-service updates on the project?
+  
+* Keep labels and naming as consistent as possible across the various services you use.
+  
+* For more formal situations, you might also need to set up RACI or similar communication structures.
 
-  * Do you want to increase customer lifetime value, or get more daily active users, or decrease AWS spend, or...? 
-  * You need at least one, and probably no more than five if you want to stay sane, and they all need a target number. 
-  * Measure your starting number, and document how you calculated it, because you're going to need to use the same method again later. 
-  * It really helps if at least one of your measurable outcomes has a non-zero starting point.
+Define measurable outcomes as success criteria from the very start. 
 
-3. Conduct a pre-mortem. 
+* Do you want to increase customer lifetime value, or get more daily active users, or decrease AWS spend, or...?
+  
+* You need at least one, and probably no more than five if you want to stay sane, and they all need a target number.
+  
+* Measure your starting number, and document how you calculated it, because you're going to need to use the same method again later.
+  
+* It really helps if at least one of your measurable outcomes has a non-zero starting point.
 
-  * Everyone on the project (or representatives of each role, if somehow your team is too big) gets together and imagines that the project is complete but ended up going less-than-well. 
-  * Brainstorm every failure mode you can think of, then brainstorm ways to prevent or mitigate each failure mode. 
-  * Some failure modes are unavoidable, and it's good to recognize that too. 
-  * Create tasks to follow up on each preventative measure.
+Conduct a pre-mortem. 
 
-4. Set milestones to gauge progress. 
+* Everyone on the project (or representatives of each role, if somehow your team is too big) gets together and imagines that the project is complete but ended up going less-than-well.
+  
+* Brainstorm every failure mode you can think of, then brainstorm ways to prevent or mitigate each failure mode.
+  
+* Some failure modes are unavoidable, and it's good to recognize that too.
+  
+* Create tasks to follow up on each preventative measure.
 
-  * This can be lightweight and still be useful. 
-  * Each milestone allows you to evaluate the impact of unforeseen challenges, whether the quality of work is high enough, whether scope or time needs to be adjusted, and even whether to pull the plug early. 
-  * Iteration boundaries are fine milestones.
+Set milestones to gauge progress. 
 
-5. Conduct a retrospective when the project is complete and enough time has passed to collect the appropriate metrics. 
+* This can be lightweight and still be useful.
+  
+* Each milestone allows you to evaluate the impact of unforeseen challenges, whether the quality of work is high enough, whether scope or time needs to be adjusted, and even whether to pull the plug early.
+  
+* Iteration boundaries are fine milestones.
 
-  * Check the outcomes using the calculations from step 1 and 2. 
-  * Celebrate successes, assess shortcomings, and brainstorm ways to improve the way that projects are run. 
-  * It's surprisingly important to be explicit about learning from past mistakes. 
-  * Now you're ready to rinse and repeat.
+Conduct a retrospective when the project is complete and enough time has passed to collect the appropriate metrics. 
 
-These principles are orthogonal to, or perhaps operating on a higher level than, kanban or agile or what-have-you. None of the above ideas force you into a waterfall methodology, but they may require you to think a bit harder up front. It's also not incompatible with continuous deployment or other similar development practices.
+* Check the outcomes using the calculations from step 1 and 2.
+ 
+* Celebrate successes, assess shortcomings, and brainstorm ways to improve the way that projects are run.
+  
+* It's surprisingly important to be explicit about learning from past mistakes.
+  
+* Now you're ready to rinse and repeat.
 
+These principles are orthogonal to, or perhaps operating on a higher level than, kanban or agile or what-have-you.
+
+These principles won't force you into a waterfall methodology, but they may require you to think a bit harder up front.
+
+These principles are compatible with continuous deployment or other similar development practices.
+
+
+## Software Engineering at Google
+
+https://arxiv.org/ftp/arxiv/papers/1702/1702.01715.pdf
+
+We catalog and describe Google’s key software engineering practices.
+
+The Source Repository:
+
+* Most of Google’s code is stored in a single unified source-code repository, and is accessible to all engineers.
+  
+* Almost all development occurs at the “head” of the repository, not on branches.
+  
+* Automated systems run tests frequently.
+  
+* Code trees have owners, and any changes to code in the tree must be approved by an owner.
+  
+The Build System:
+
+* Individual build steps must be “hermetic”: they depend only on their declared inputs.
+  
+* Individual build steps are deterministic, thus results are cacheable “in the cloud”, and rebuilds are fast.
+  
+* Each subtree can have presubmit checks.
+  
+Code Review:
+
+* Google has built excellent web-based code review tools.​
+  
+* All changes to the main source code repository MUST be reviewed by at least one other engineer.
+  
+* Code review discussions for each project are automatically copied to a project mailing list.
+  
+* There is an “experimental” section of the repository where the normal code review requirements are not enforced.
+  
+* Engineers are encouraged to keep each individual change small.
+  
+* Larger challenges are preferably broken into smaller changes that can easily be reviewed in one go.
+  
+Testing:
+
+* Unit testing is strongly encouraged and widely practiced.
+  
+* Integration testing and regression testing are also widely practiced.
+ 
+* Presubmit Checks can be automatically enforced as part of the code review and commit process.
+  
+* Load testing prior to deployment is also de rigueur at Google.
+  
+* Google has automated tools for measuring test coverage.
+  
+Bug tracking:
+
+* We track bugs, feature requests, customer issues, and processes (such as releases or clean-up efforts).
+  
 
 ## How we structure our work and teams at Basecamp
 
@@ -116,38 +191,6 @@ Summary:
 
 http://www.scaledagileframework.com/about/
 
-SAFe® is an online freely revealed knowledge base of proven, integrated patterns for implementing Lean-Agile development. It provides comprehensive guidance for work at the Portfolio, Large Solution, Program, and Team Levels.
+SAFe® is an online freely revealed knowledge base of proven, integrated patterns for implementing Lean-Agile development.
 
-
-## Software Engineering at Google
-
-https://arxiv.org/ftp/arxiv/papers/1702/1702.01715.pdf
-
-We catalog and describe Google’s key software engineering practices.
-
-* The Source Repository
-  * Most of Google’s code is stored in a single unified source-code repository, and is accessible to all engineers.
-  * Almost all development occurs at the “head” of the repository, not on branches.
-  * Automated systems run tests frequently.
-  * Code trees have owners, and any changes to code in the tree must be approved by an owner.
-* The Build System
-  * Individual build steps must be “hermetic”: they depend only on their declared inputs.
-  * Individual build steps are deterministic, thus results are cacheable “in the cloud”, and rebuilds are fast.
-  * Each subtree can have presubmit checks.
-* Code Review
-  * Google has built excellent web-based code review tools.​
-  * All changes to the main source code repository MUST be reviewed by at least one other engineer.
-  * Code review discussions for each project are automatically copied to a project mailing list.
-  * There is an “experimental” section of the repository where the normal code review requirements are not enforced.
-  * Engineers are encouraged to keep each individual change small.
-  * Larger challenges are preferably broken into smaller changes that can easily be reviewed in one go.
-* Testing 
-  * Unit testing is strongly encouraged and widely practiced.
-  * Integration testing and regression testing are also widely practiced.
-  * Presubmit Checks can be automatically enforced as part of the code review and commit process.
-  * Load testing prior to deployment is also de rigueur at Google.
-  * Google has automated tools for measuring test coverage.
-* Bug tracking
-  * We track bugs, feature requests, customer issues, and processes (such as releases or clean-up efforts).
-  
-
+It provides comprehensive guidance for work at the Portfolio, Large Solution, Program, and Team Levels.
